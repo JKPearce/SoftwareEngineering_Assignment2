@@ -50,6 +50,7 @@
     <Compile Include="Control\CommandResponse.cs" />
     <Compile Include="Control\CommandState.cs" />
     <Compile Include="Control\CommerceState.cs" />
+    <Compile Include="Control\DropCommand.cs" />
     <Compile Include="Control\DungeonMaster.cs" />
     <Compile Include="Control\GameFactory.cs" />
     <Compile Include="Control\ListItemCommand.cs" />
@@ -58,6 +59,7 @@
     <Compile Include="Control\MovementState.cs" />
     <Compile Include="Control\ParsedInput.cs" />
     <Compile Include="Control\Parser.cs" />
+    <Compile Include="Control\PickUpCommand.cs" />
     <Compile Include="Control\QuitCommand.cs" />
     <Compile Include="Control\SellCommand.cs" />
     <Compile Include="Control\UnlockCommand.cs" />

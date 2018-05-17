@@ -13,8 +13,8 @@ namespace MazegameTest
         [TestInitialize]
         public void init()
         {
-            t127 = new Location("a lecture theatre", "T127", new NonPlayerCharacter("Johnny", "heyo"));
-            gregsoffice = new Location("a spinning vortex of terror", "Greg's Office", new NonPlayerCharacter("Johnny", "heyo"));    
+            t127 = new Location("a lecture theatre", "T127", new NonPlayerCharacter("Johnny", "heyo", false));
+            gregsoffice = new Location("a spinning vortex of terror", "Greg's Office", new NonPlayerCharacter("Johnny", "heyo", false));    
         }
 
         [TestMethod]

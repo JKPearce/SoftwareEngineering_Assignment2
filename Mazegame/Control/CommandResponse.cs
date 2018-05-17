@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Mazegame.Entity;
 
 namespace Mazegame.Control
 {
@@ -10,11 +11,17 @@ namespace Mazegame.Control
     {
         private bool finishedGame;
         private string message;
+        private Item item;
 
         public CommandResponse(string message)
         {
             Message = message;
             FinishedGame = false;
+        }
+
+        public CommandResponse(Item item)
+        {
+            this.item = item;
         }
 
         public CommandResponse(string message, bool quitFlag)

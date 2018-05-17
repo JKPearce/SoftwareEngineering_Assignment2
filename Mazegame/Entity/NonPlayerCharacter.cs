@@ -17,10 +17,11 @@ namespace Mazegame.Entity
         private String dialogue;
         
 
-        public NonPlayerCharacter(String name, String dialogue)
+        public NonPlayerCharacter(String name, String dialogue, Boolean hostile)
         {
             this.Name = name;
             this.dialogue = dialogue;
+            this.hostile = hostile;
         }
 
         public String Dialogue

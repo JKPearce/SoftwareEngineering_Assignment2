@@ -66,14 +66,14 @@ namespace MazeDataImpl
         private void CreateLocations()
         {
 
-            startUp = new Location("A large, open room with Immaculately clean marbles floors", "Mansion Lobby", new NonPlayerCharacter("Johnny", "heyo"));
+            startUp = new Location("A large, open room with Immaculately clean marbles floors", "Mansion Lobby", new NonPlayerCharacter("Johnny", "heyo", false));
             
-            westHall = new Location("A long hallway leading west", "West Hall", new NonPlayerCharacter("Joasdasdasdahnny", "heyo"));
-            mainHall = new Location("A room filled with neatly places paintings and sculptures", "Main Hall", new NonPlayerCharacter("Johasdasdasdasdnny", "heyo"));
-            eastHall = new Location("A long hallway leading east", "East Hall", new NonPlayerCharacter("Joaaaaaaaaaaaaaaaaaaaaaahnny", "heyo"));
-            butlerBedroom = new Shop("A small, tidy room with bare furniture", "Butler's Bedroom", new NonPlayerCharacter("Johnasdssadasdny", "heyo"));
-            maidBedroom = new Shop("A small, fragrant room", "Maid's Bedroom", new NonPlayerCharacter("Johaaaaaanny", "heyo"));
-            smithRoom = new Shop("The room smells of metal and something burning", "Blacksmith's Workshop", new NonPlayerCharacter("ssss", "heyo"));
+            westHall = new Location("A long hallway leading west", "West Hall", new NonPlayerCharacter("Joasdasdasdahnny", "heyo", false));
+            mainHall = new Location("A room filled with neatly places paintings and sculptures", "Main Hall", new NonPlayerCharacter("Johasdasdasdasdnny", "heyo", false));
+            eastHall = new Location("A long hallway leading east", "East Hall", new NonPlayerCharacter("Joaaaaaaaaaaaaaaaaaaaaaahnny", "heyo", false));
+            butlerBedroom = new Shop("A small, tidy room with bare furniture", "Butler's Bedroom", new NonPlayerCharacter("Johnasdssadasdny", "heyo", false));
+            maidBedroom = new Shop("A small, fragrant room", "Maid's Bedroom", new NonPlayerCharacter("Johaaaaaanny", "heyo", false));
+            smithRoom = new Shop("The room smells of metal and something burning", "Blacksmith's Workshop", new NonPlayerCharacter("ssss", "heyo", false));
 
             startUp.GetExitCollection().AddExit("north", new Exit("You see a large room to the north", mainHall));
 
@@ -103,30 +103,30 @@ namespace MazeDataImpl
         {
             //CHANGE THESE
             startUp.GetInventory().AddMoney(50);
-            startUp.GetInventory().AddItem(new Item("Short Sword", 10, 3, "The shortest sword"));
-            startUp.GetInventory().AddItem(new Item("Padded Armor", 5, 10, "Harder than normal leather"));
+            startUp.GetInventory().AddItem(new Item("short_sword", 10, 3, "The shortest sword"));
+            startUp.GetInventory().AddItem(new Item("padded_armor", 5, 10, "Harder than normal leather"));
 
-            westHall.GetInventory().AddItem(new Item("Warhammer", 12, 8, "It's hammer time"));
+            westHall.GetInventory().AddItem(new Item("warhammer", 12, 8, "It's hammer time"));
             westHall.GetInventory().AddMoney(10);
 
-            mainHall.GetInventory().AddItem(new Item("Studded Leather Armor", 25, 20, "These studs should provide a bit more protection"));
+            mainHall.GetInventory().AddItem(new Item("studded_leather_armor", 25, 20, "These studs should provide a bit more protection"));
             mainHall.GetInventory().AddMoney(50);
 
-            eastHall.GetInventory().AddItem(new Item("Key", 1, 0.5, "I wonder what this opens"));
-            eastHall.GetInventory().AddItem(new Item("Large Rock", 1000, 1000, "That is a big rock"));
+            eastHall.GetInventory().AddItem(new Item("key", 1, 0.5, "I wonder what this opens"));
+            eastHall.GetInventory().AddItem(new Item("large_rock", 1000, 1000, "That is a big rock"));
 
-            butlerBedroom.GetInventory().AddItem(new Item("Leather Armor", 10, 15, "Better than no armor"));
-            butlerBedroom.GetInventory().AddItem(new Item("Long Sword", 15, 4, "The longest of swords"));
-            butlerBedroom.GetInventory().AddItem(new Item("Chain Mail", 150, 40, "Chains linked to form armor"));
+            butlerBedroom.GetInventory().AddItem(new Item("leather_armor", 10, 15, "Better than no armor"));
+            butlerBedroom.GetInventory().AddItem(new Item("long_sword", 15, 4, "The longest of swords"));
+            butlerBedroom.GetInventory().AddItem(new Item("chain_mail", 150, 40, "Chains linked to form armor"));
 
-            maidBedroom.GetInventory().AddItem(new Item("Nunchaku", 2, 2, "A pair of nunchaku, smells of pizza"));
-            maidBedroom.GetInventory().AddItem(new Item("Dagger", 1, 2, "Short but pointy"));
+            maidBedroom.GetInventory().AddItem(new Item("nunchaku", 2, 2, "A pair of nunchaku, smells of pizza"));
+            maidBedroom.GetInventory().AddItem(new Item("dagger", 1, 2, "Short but pointy"));
 
-            smithRoom.GetInventory().AddItem(new Item("Large Steel Shield", 20, 15, "A Large metal shield"));
-            smithRoom.GetInventory().AddItem(new Item("Dwarven War Axe", 30, 15, "A common weapon for a dwarf"));
-            smithRoom.GetInventory().AddItem(new Item("Great Sword", 50, 15, "The greatest of them all"));
-            smithRoom.GetInventory().AddItem(new Item("Great Club", 5, 10, "A brutal weapon popular amoung giants"));
-            smithRoom.GetInventory().AddItem(new Item("Chain Shirt", 100, 25, "Like the chain mail, but a shirt"));
+            smithRoom.GetInventory().AddItem(new Item("large_steel_shield", 20, 15, "A Large metal shield"));
+            smithRoom.GetInventory().AddItem(new Item("dwarven_war_axe", 30, 15, "A common weapon for a dwarf"));
+            smithRoom.GetInventory().AddItem(new Item("great_sword", 50, 15, "The greatest of them all"));
+            smithRoom.GetInventory().AddItem(new Item("great_club", 5, 10, "A brutal weapon popular amoung giants"));
+            smithRoom.GetInventory().AddItem(new Item("chain_shirt", 100, 25, "Like the chain mail, but a shirt"));
 
 
         }

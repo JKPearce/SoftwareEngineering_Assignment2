@@ -21,8 +21,8 @@ namespace MazegameTest
         {
             playerInput = new ParsedInput("look", new ArrayList());
             thePlayer = new Player("greg");
-            t127 = new Location("a lecture theatre", "T127", new NonPlayerCharacter("Johnny", "heyo"));
-            Location gregsoffice = new Location("a spinning vortex of terror", "Greg's Office", new NonPlayerCharacter("Johnny", "heyo"));
+            t127 = new Location("a lecture theatre", "T127", new NonPlayerCharacter("Johnny", "heyo", false));
+            Location gregsoffice = new Location("a spinning vortex of terror", "Greg's Office", new NonPlayerCharacter("Johnny", "heyo", false));
             southExit = new Exit("you see a mound of paper to the south", gregsoffice);
             t127.GetExitCollection().AddExit("south", southExit );
             thePlayer.CurrentLocation = t127;
