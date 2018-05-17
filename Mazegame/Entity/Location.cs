@@ -14,7 +14,7 @@ namespace Mazegame.Entity
 {
     public class Location
     {
-        private Hashtable characters;
+        private NonPlayerCharacter npc;
         private Inventory items;
 
         private String description;
@@ -25,17 +25,25 @@ namespace Mazegame.Entity
         {
             exitCollection = new ExitCollection();
             items = new Inventory();
+            
         }
 
-        public Location(String description, String label) : this()
+        public Location(String description, String label, NonPlayerCharacter npc) : this()
         {
             Description = description;
             Label = label;
+            this.npc = npc;
+            
         }
 
         public Inventory GetInventory()
         {
             return items;
+        }
+
+        public NonPlayerCharacter GetNPC()
+        {
+            return this.npc;
         }
 
         public String Description
@@ -58,6 +66,7 @@ namespace Mazegame.Entity
         public override string ToString()
         {
             return
+                this.npc.Name+ this.npc.Dialogue +
                 "**********\n" + this.Label + "\n**********\n"
                 + "Exits found :: " + exitCollection.AvailableExits()
                 + "\n" + items.ToString() 

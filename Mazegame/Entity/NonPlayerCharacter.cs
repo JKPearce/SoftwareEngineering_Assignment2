@@ -7,17 +7,27 @@
 ///////////////////////////////////////////////////////////
 
 using System;
+using System.Collections;
 
 namespace Mazegame.Entity
 {
     public class NonPlayerCharacter : Character
     {
         private Boolean hostile;
+        private String dialogue;
+        
 
-        public NonPlayerCharacter()
+        public NonPlayerCharacter(String name, String dialogue)
         {
+            this.Name = name;
+            this.dialogue = dialogue;
         }
 
+        public String Dialogue
+        {
+            get { return dialogue; }
+            set { dialogue = value; }
+        }
 
         public Boolean Hostile
         {

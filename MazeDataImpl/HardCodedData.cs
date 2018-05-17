@@ -7,7 +7,6 @@
 ///////////////////////////////////////////////////////////
 
 using System;
-using System.Collections.Generic;
 using Mazegame.Boundary;
 using Mazegame.Entity;
 using Mazegame.Entity.Utility;
@@ -16,11 +15,10 @@ namespace MazeDataImpl
 {
     public class HardCodedData : IMazeData
     {
-        private Location startUp, lounge, t127, gregsOffice, evansCave;
+        private Location startUp, westHall, mainHall, eastHall, butlerBedroom, maidBedroom, smithRoom;
         private AgilityTable agilityModifier;
         private StrengthTable strengthModifier;
         private WeightLimit weightLookup;
-
 
         public HardCodedData()
         {
@@ -29,6 +27,14 @@ namespace MazeDataImpl
             PopulateStrengthTable();
             PopulateWeightLimit();
             CreateItems();
+        }
+
+        ~HardCodedData()
+        {
+        }
+
+        public virtual void Dispose()
+        {
         }
 
         public Location GetStartingLocation()
@@ -53,44 +59,75 @@ namespace MazeDataImpl
 
         public String GetWelcomeMessage()
         {
-            return "Welcome to the Mount Helanous";
+            return "Welcome to the Duke's Mansion";
         }
+        
 
         private void CreateLocations()
         {
-            startUp =
-                new Location("an office with paper strewn everywhere, how anyone works effectively here is a mystery",
-                    "Julies Office");
-            lounge =
-                new Location("an open space containing comfortable looking couches and artwork of dubious quality",
-                    "Airport Lounge");
-            t127 = new Location("a lecture theatre", "T127");
-            gregsOffice = new Location("a spinning vortex of terror", "Greg's Office");
-            evansCave = new Shop("a crowded room full of technology related stuff", "Crazy Evan's Discount Technology");
 
-            startUp.GetExitCollection().AddExit("south", new Exit("you see an open space to the south", lounge));
-            startUp.GetExitCollection().AddExit("west", new Exit("you see a terrifying office to the west", gregsOffice));
-            startUp.GetExitCollection().AddExit("north", new Exit("you see a bleak place to the north", t127));
+            startUp = new Location("A large, open room with Immaculately clean marbles floors", "Mansion Lobby", new NonPlayerCharacter("Johnny", "heyo"));
+            
+            westHall = new Location("A long hallway leading west", "West Hall", new NonPlayerCharacter("Joasdasdasdahnny", "heyo"));
+            mainHall = new Location("A room filled with neatly places paintings and sculptures", "Main Hall", new NonPlayerCharacter("Johasdasdasdasdnny", "heyo"));
+            eastHall = new Location("A long hallway leading east", "East Hall", new NonPlayerCharacter("Joaaaaaaaaaaaaaaaaaaaaaahnny", "heyo"));
+            butlerBedroom = new Shop("A small, tidy room with bare furniture", "Butler's Bedroom", new NonPlayerCharacter("Johnasdssadasdny", "heyo"));
+            maidBedroom = new Shop("A small, fragrant room", "Maid's Bedroom", new NonPlayerCharacter("Johaaaaaanny", "heyo"));
+            smithRoom = new Shop("The room smells of metal and something burning", "Blacksmith's Workshop", new NonPlayerCharacter("ssss", "heyo"));
 
-            lounge.GetExitCollection().AddExit("north", new Exit("you see a mound of paper to the north", startUp));
-            lounge.GetExitCollection().AddExit("northwest", new Exit("you see a terrifying office to the northwest", gregsOffice));
+            startUp.GetExitCollection().AddExit("north", new Exit("You see a large room to the north", mainHall));
 
-            t127.GetExitCollection().AddExit("south", new Exit("you see a mound of paper to the south", startUp));
+            startUp.GetExitCollection().AddExit("northwest", new Exit("You see a large hall to the north west", westHall));
 
-            gregsOffice.GetExitCollection().AddExit("east", new Exit("you see a mound of paper to the east", startUp));
-            gregsOffice.GetExitCollection().AddExit("southeast", new Exit("you see an open space to the southeast", lounge));
-            gregsOffice.GetExitCollection().AddExit("west",
-                new Exit("you see shiny stuff to the west.. it looks outdated, retro even", evansCave));
+            startUp.GetExitCollection().AddExit("northeast", new Exit("You see a large hall to the north east", eastHall));
 
-            evansCave.GetExitCollection().AddExit("east", new Exit("you see a terrifying office to the east", gregsOffice));
+            westHall.GetExitCollection().AddExit("up", new Exit("You see stairs leading up", smithRoom));
+            smithRoom.GetExitCollection().AddExit("down", new Exit("You see stairs leading down", westHall));
+
+            mainHall.GetExitCollection().AddExit("west", new Exit("The large hall continues to the west", westHall));
+            westHall.GetExitCollection().AddExit("east", new Exit("The large hall continues to the east", mainHall));
+
+            mainHall.GetExitCollection().AddExit("northeast", new Exit("You see a small room to the northeast", butlerBedroom));
+            butlerBedroom.GetExitCollection().AddExit("southwest", new Exit("You see a large room to the southwest", mainHall));
+
+            mainHall.GetExitCollection().AddExit("east", new Exit("The large hall continues to the east", eastHall));
+            eastHall.GetExitCollection().AddExit("west", new Exit("The large hall continues to the west", mainHall));
+
+            eastHall.GetExitCollection().AddExit("south", new Exit("You see a small room to the south", maidBedroom));
+            maidBedroom.GetExitCollection().AddExit("west", new Exit("You see a large room to the west", startUp));
+
+            eastHall.GetExitCollection().AddExit("northwest", new Exit("You see a small room to the northwest", butlerBedroom));
         }
 
         private void CreateItems()
         {
-            gregsOffice.GetInventory().AddMoney(250);
-            gregsOffice.GetInventory().AddItem(new Item("GoldUSB1", 2, 1, "A shiny gold 64GB USB stick"));
+            startUp.GetInventory().AddMoney(50);
+            startUp.GetInventory().AddItem(new Item("Short Sword", 10, 3, "The shortest sword"));
+            startUp.GetInventory().AddItem(new Item("Padded Armor", 5, 10, "Harder than normal leather"));
 
-            evansCave.GetInventory().AddItem(new Item("SurfacePro3",1500,200,"Microsofts new but old idea"));
+            westHall.GetInventory().AddItem(new Item("Warhammer", 12, 8, "It's hammer time"));
+            westHall.GetInventory().AddMoney(10);
+
+            mainHall.GetInventory().AddItem(new Item("Studded Leather Armor", 25, 20, "These studs should provide a bit more protection"));
+            mainHall.GetInventory().AddMoney(50);
+
+            eastHall.GetInventory().AddItem(new Item("Key", 1, 0.5, "I wonder what this opens"));
+            eastHall.GetInventory().AddItem(new Item("Large Rock", 1000, 1000, "That is a big rock"));
+
+            butlerBedroom.GetInventory().AddItem(new Item("Leather Armor", 10, 15, "Better than no armor"));
+            butlerBedroom.GetInventory().AddItem(new Item("Long Sword", 15, 4, "The longest of swords"));
+            butlerBedroom.GetInventory().AddItem(new Item("Chain Mail", 150, 40, "Chains linked to form armor"));
+
+            maidBedroom.GetInventory().AddItem(new Item("Nunchaku", 2, 2, "A pair of nunchaku, smells of pizza"));
+            maidBedroom.GetInventory().AddItem(new Item("Dagger", 1, 2, "Short but pointy"));
+
+            smithRoom.GetInventory().AddItem(new Item("Large Steel Shield", 20, 15, "A Large metal shield"));
+            smithRoom.GetInventory().AddItem(new Item("Dwarven War Axe", 30, 15, "A common weapon for a dwarf"));
+            smithRoom.GetInventory().AddItem(new Item("Great Sword", 50, 15, "The greatest of them all"));
+            smithRoom.GetInventory().AddItem(new Item("Great Club", 5, 10, "A brutal weapon popular amoung giants"));
+            smithRoom.GetInventory().AddItem(new Item("Chain Shirt", 100, 25, "Like the chain mail, but a shirt"));
+
+
         }
 
         private void PopulateAgilityTable()
@@ -214,5 +251,7 @@ namespace MazeDataImpl
             strengthModifier.SetModifier(45, 17);
             strengthModifier.SetModifier(46, 18);
         }
+
+
     } //end HardCodedData
 } //end namespace Mazegame

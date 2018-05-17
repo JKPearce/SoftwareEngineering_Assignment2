@@ -14,7 +14,7 @@ namespace Mazegame.Entity {
 		public Shop(){
 		}
 
-	    public Shop(String description, String label) : base(description, label)
+	    public Shop(String description, String label, NonPlayerCharacter npc) : base(description, label, npc)
 	    {
 	    }
 
