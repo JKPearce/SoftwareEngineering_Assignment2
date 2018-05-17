@@ -52,6 +52,7 @@
     <Compile Include="Control\CommerceState.cs" />
     <Compile Include="Control\DungeonMaster.cs" />
     <Compile Include="Control\GameFactory.cs" />
+    <Compile Include="Control\ListItemCommand.cs" />
     <Compile Include="Control\LookCommand.cs" />
     <Compile Include="Control\MoveCommand.cs" />
     <Compile Include="Control\MovementState.cs" />

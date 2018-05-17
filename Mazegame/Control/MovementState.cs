@@ -12,6 +12,7 @@ namespace Mazegame.Control
             AvailableCommands.Add("look", new LookCommand());
             AvailableCommands.Add("unlock", new UnlockCommand());
             AvailableCommands.Add("attack", new AttackCommand());
+            AvailableCommands.Add("list", new ListItemCommand());
         }
 
         public override CommandState Update(Player thePlayer)

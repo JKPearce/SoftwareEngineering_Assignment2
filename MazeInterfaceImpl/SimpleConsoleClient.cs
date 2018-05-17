@@ -16,7 +16,7 @@ namespace MazeInterfaceImpl
     {
         public SimpleConsoleClient()
         {
-            Console.Title = "Greg's wacky maze game";
+            Console.Title = "Duke's Mansion";
             Console.WindowWidth = 100;
             Console.ForegroundColor = ConsoleColor.White;
         }

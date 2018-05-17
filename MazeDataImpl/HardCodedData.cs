@@ -101,6 +101,7 @@ namespace MazeDataImpl
 
         private void CreateItems()
         {
+            //CHANGE THESE
             startUp.GetInventory().AddMoney(50);
             startUp.GetInventory().AddItem(new Item("Short Sword", 10, 3, "The shortest sword"));
             startUp.GetInventory().AddItem(new Item("Padded Armor", 5, 10, "Harder than normal leather"));
