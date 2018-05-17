@@ -10,9 +10,7 @@ using System;
 
 namespace Mazegame.Entity {
 	public class Player : Character {
-        private Location currentLocation;
-
-        public Mazegame.Entity.Location m_Location;
+	    private Location currentLocation;
 
 	    public Player()
 	    {
@@ -23,13 +21,11 @@ namespace Mazegame.Entity {
 		    
 		}
 
-        public Location CurrentLocation
-        {
-            get { return currentLocation; }
-            set { currentLocation = value; }
-        }
+	    public Location CurrentLocation
+	    {
+	        get { return currentLocation; }
+	        set { currentLocation = value; }
+	    }
+	}
 
-
-    }//end Player
-
-}//end namespace Entity
+}

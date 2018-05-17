@@ -1,9 +1,9 @@
-﻿using Mazegame.Entity;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Mazegame.Entity;
 
 namespace Mazegame.Control
 {
@@ -16,8 +16,8 @@ namespace Mazegame.Control
                 return new CommandResponse("If you want to move you need to tell me where");
             }
 
-            String exitLabel = (String)userInput.Arguments[0];
-            Exit desiredExit = thePlayer.CurrentLocation.GetExit(exitLabel);
+            String exitLabel = (String) userInput.Arguments[0];
+            Exit desiredExit = thePlayer.CurrentLocation.GetExitCollection().GetExit(exitLabel);
             if (desiredExit == null)
             {
                 return new CommandResponse("There is no exit there.. Trying moving someplace moveable!!");

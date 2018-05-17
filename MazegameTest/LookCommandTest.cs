@@ -24,7 +24,7 @@ namespace MazegameTest
             t127 = new Location("a lecture theatre", "T127");
             Location gregsoffice = new Location("a spinning vortex of terror", "Greg's Office");
             southExit = new Exit("you see a mound of paper to the south", gregsoffice);
-            t127.AddExit("south", southExit);
+            t127.GetExitCollection().AddExit("south", southExit );
             thePlayer.CurrentLocation = t127;
             handler = new CommandHandler();
             look = new LookCommand();
@@ -43,7 +43,7 @@ namespace MazegameTest
         [TestMethod]
         public void TestLookNoMatch()
         {
-            playerInput.Arguments = new ArrayList(new string[] { "bunyip" });
+            playerInput.Arguments = new ArrayList(new string[] {"bunyip"});
             CommandResponse response = look.Execute(playerInput, thePlayer);
             Assert.IsFalse(response.FinishedGame);
             Assert.IsTrue(response.Message.Contains("Can't find that"));
@@ -52,7 +52,7 @@ namespace MazegameTest
         [TestMethod]
         public void TestLookExit()
         {
-            playerInput.Arguments = new ArrayList(new string[] { "south" });
+            playerInput.Arguments = new ArrayList(new string[] {"south"});
             CommandResponse response = look.Execute(playerInput, thePlayer);
             Assert.IsFalse(response.FinishedGame);
             Assert.IsTrue(response.Message.Contains(southExit.Description));

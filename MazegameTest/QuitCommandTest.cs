@@ -32,7 +32,7 @@ namespace MazegameTest
             Assert.IsTrue(response.Message.Contains("Goodbye"));
 
             // test quit command >0 arguments
-            playerInput.Arguments = new ArrayList(new string[] { "this", "game" });
+            playerInput.Arguments = new ArrayList(new string[] {"this", "game"});
             response = quit.Execute(playerInput, thePlayer);
             Assert.IsTrue(response.FinishedGame);
             Assert.IsTrue(response.Message.Contains("Goodbye"));

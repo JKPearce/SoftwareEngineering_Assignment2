@@ -34,6 +34,5 @@ namespace Mazegame.Control
             get { return message; }
             set { message = value; }
         }
-
     }
 }

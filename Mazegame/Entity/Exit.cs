@@ -20,7 +20,6 @@ namespace Mazegame.Entity {
 		    Destination = destination;
 		}
 
-
 	    public string Description
 	    {
 	        get { return description; }

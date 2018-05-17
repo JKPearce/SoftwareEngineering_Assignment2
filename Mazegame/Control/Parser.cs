@@ -24,7 +24,7 @@ namespace Mazegame.Control
             ParsedInput parsedInput = new ParsedInput();
             String lowercaseInput = rawInput.ToLower();
             ArrayList stringTokens = new ArrayList(lowercaseInput.Split());
-
+            
             foreach (string token in stringTokens)
             {
 
@@ -37,6 +37,5 @@ namespace Mazegame.Control
             }
             return parsedInput;
         }
-
     }
 }

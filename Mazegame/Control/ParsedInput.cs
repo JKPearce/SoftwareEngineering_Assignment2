@@ -10,7 +10,7 @@ namespace Mazegame.Control
     public class ParsedInput
     {
         private string command;
-        private ArrayList arguments;
+        private ArrayList arguments;   
 
         public ParsedInput()
         {

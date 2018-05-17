@@ -11,9 +11,11 @@ namespace Mazegame.Entity {
 
 		public Mazegame.Entity.Dice m_Dice;
 
-		public Weapon(){
+        public Weapon(string label, int value, double weight, string description)
+            : base(label, value, weight, description)
+	{
 
-		}
+	}
 
 	}//end Weapon
 

@@ -9,8 +9,10 @@
 
 using System;
 using System.Collections;
+using System.Xml.Serialization;
 using Mazegame.Boundary;
 using Mazegame.Entity;
+using MazeGame.Control;
 
 namespace Mazegame.Control
 {
@@ -22,12 +24,13 @@ namespace Mazegame.Control
         private CommandHandler playerTurnHandler;
 
 
-        public DungeonMaster(IMazeData gameData, IMazeClient gameClient)
+        public DungeonMaster()
         {
-            this.gameData = gameData;
-            this.gameClient = gameClient;
+            this.gameData = GameFactory.GetInstance().TheData;
+            this.gameClient = GameFactory.GetInstance().TheClient;
             playerTurnHandler = new CommandHandler();
         }
+
 
         public void PrintWelcome()
         {
@@ -48,15 +51,15 @@ namespace Mazegame.Control
         {
             PrintWelcome();
             SetupPlayer();
-            while (HandlePlayerTurn())
+            while (handlePlayerTurn())
             {
                 // handle npc logic later here
-            }
-
+            } 
+            
             gameClient.GetReply("\n\n<<Hit enter to exit>>");
         }
 
-        private bool HandlePlayerTurn()
+        private bool handlePlayerTurn()
         {
             CommandResponse playerResponse = playerTurnHandler.ProcessTurn(gameClient.GetCommand(), thePlayer);
             gameClient.PlayerMessage(playerResponse.Message);

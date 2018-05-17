@@ -11,7 +11,7 @@ namespace Mazegame
     {
         static void Main(string[] args)
         {
-            DungeonMaster theDm = new DungeonMaster(new HardCodedData(), new SimpleConsoleClient());
+            DungeonMaster theDm = new DungeonMaster();
             theDm.RunGame();
         }
     }

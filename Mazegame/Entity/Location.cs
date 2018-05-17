@@ -10,35 +10,32 @@ using System;
 using System.Collections;
 using System.Text;
 
-namespace Mazegame.Entity {
+namespace Mazegame.Entity
+{
     public class Location
     {
-        private Hashtable exits;
+        private Hashtable characters;
+        private Inventory items;
+
         private String description;
         private String label;
+        private readonly ExitCollection exitCollection;
 
         public Location()
         {
+            exitCollection = new ExitCollection();
+            items = new Inventory();
         }
 
-        public Location(String description, String label)
+        public Location(String description, String label) : this()
         {
             Description = description;
             Label = label;
-            exits = new Hashtable();
         }
 
-        public Boolean AddExit(String exitLabel, Exit theExit)
+        public Inventory GetInventory()
         {
-            if (exits.ContainsKey(exitLabel))
-                return false;
-            exits.Add(exitLabel, theExit);
-            return true;
-        }
-
-        public Exit GetExit(String exitLabel)
-        {
-            return (Exit)exits[exitLabel];
+            return items;
         }
 
         public String Description
@@ -53,29 +50,18 @@ namespace Mazegame.Entity {
             set { label = value; }
         }
 
-        public String AvailableExits()
+        public ExitCollection GetExitCollection()
         {
-            StringBuilder returnMsg = new StringBuilder();
-            foreach (string label in this.exits.Keys)
-            {
-                returnMsg.Append("[" + label + "] ");
-            }
-            return returnMsg.ToString();
+            return exitCollection;
         }
 
         public override string ToString()
         {
-            return "**********\n" + this.Label + "\n**********\n"
-                + "Exits found :: " + AvailableExits() + "\n**********\n"
-                + this.Description + "\n**********\n";
+            return
+                "**********\n" + this.Label + "\n**********\n"
+                + "Exits found :: " + exitCollection.AvailableExits()
+                + "\n" + items.ToString() 
+                + "\n**********\n" + this.Description + "\n**********\n";
         }
-
-        public bool ContainsExit(String exitLabel)
-        {
-            return exits.Contains(exitLabel);
-        }
-
-    }
-    //end Location
-
-}//end namespace Entity
+    } 
+} 

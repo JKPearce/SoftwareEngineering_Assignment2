@@ -14,7 +14,7 @@ namespace MazegameTest
         [TestInitialize]
         public void Init()
         {
-            commands = new ArrayList(new string[] { "quit", "move" });
+            commands = new ArrayList(new string[]{"quit","move"});
             theParser = new Parser(commands);
         }
 
@@ -22,7 +22,7 @@ namespace MazegameTest
         public void TestCommandDetection()
         {
             ParsedInput userInput = theParser.Parse("quit");
-            Assert.AreEqual(userInput.Command, "quit");
+            Assert.AreEqual(userInput.Command,"quit");
             userInput = theParser.Parse("move west");
             Assert.AreEqual(userInput.Command, "move");
             userInput = theParser.Parse("greg");

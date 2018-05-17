@@ -1,46 +1,32 @@
-﻿using Mazegame.Entity;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+using Mazegame.Entity;
 
 namespace Mazegame.Control
 {
     public class CommandHandler
     {
-        private Hashtable availableCommands;
-        private Parser theParser;
+        private CommandState availableCommands;
 
         public CommandHandler()
         {
-            availableCommands = new Hashtable();
-            SetupCommands();
-            theParser = new Parser(new ArrayList(availableCommands.Keys));
-        }
-
-        private void SetupCommands()
-        {
-            availableCommands.Add("look", new LookCommand());
-            availableCommands.Add("go", new MoveCommand());
-            availableCommands.Add("quit", new QuitCommand());
-            availableCommands.Add("move", new MoveCommand());
+            availableCommands = new MovementState();
         }
 
         public CommandResponse ProcessTurn(String userInput, Player thePlayer)
         {
-            ParsedInput validInput = theParser.Parse(userInput);
-            try
-            {
-                Command theCommand = (Command)availableCommands[validInput.Command];
-                return theCommand.Execute(validInput, thePlayer);
-            }
-            catch (NullReferenceException)
-            {
+            availableCommands = availableCommands.Update(thePlayer);
+            ParsedInput validInput = parse(userInput);
+
+            Command theCommand = availableCommands.GetCommand(validInput.Command);
+            if (theCommand == null)
                 return new CommandResponse("Not a valid command");
-            }
+            return theCommand.Execute(validInput, thePlayer);
+        }
+
+        private ParsedInput parse(String userInput)
+        {
+            Parser theParser = new Parser(availableCommands.GetLabels());
+            return theParser.Parse(userInput);
         }
     }
-
 }

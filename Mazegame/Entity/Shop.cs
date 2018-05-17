@@ -6,13 +6,17 @@
 //  Original author: Gsimmons
 ///////////////////////////////////////////////////////////
 
+using System;
+
 namespace Mazegame.Entity {
 	public class Shop : Location {
 
 		public Shop(){
-
 		}
 
+	    public Shop(String description, String label) : base(description, label)
+	    {
+	    }
 
 	}//end Shop
 

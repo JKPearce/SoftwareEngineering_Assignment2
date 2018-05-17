@@ -7,27 +7,24 @@
 ///////////////////////////////////////////////////////////
 
 
+using System;
+
 namespace Mazegame.Entity
 {
     public class Dice
     {
-        private int rolls;
-        private int sides;
+        private int faces;
+        private static readonly Random generator = new Random();
 
-        public Dice()
+        public Dice(int faces)
         {
+            this.faces = faces;
         }
 
-        public int Rolls
+        public int Roll()
         {
-            get { return rolls; }
-            set { rolls = value; }
+            return generator.Next(faces) + 1;
         }
 
-        public int Sides
-        {
-            get { return sides; }
-            set { sides = value; }
-        }
     } //end Dice
 } //end namespace Entity

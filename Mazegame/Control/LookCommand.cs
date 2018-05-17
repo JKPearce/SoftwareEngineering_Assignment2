@@ -1,9 +1,9 @@
-﻿using Mazegame.Entity;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Mazegame.Entity;
 
 namespace Mazegame.Control
 {
@@ -21,14 +21,13 @@ namespace Mazegame.Control
             }
             foreach (string argument in userInput.Arguments)
             {
-                if (thePlayer.CurrentLocation.ContainsExit(argument))
+                if (thePlayer.CurrentLocation.GetExitCollection().ContainsExit(argument))
                 {
-                    Exit theExit = thePlayer.CurrentLocation.GetExit(argument);
+                    Exit theExit = thePlayer.CurrentLocation.GetExitCollection().GetExit(argument);
                     return new CommandResponse(theExit.Description);
-                }
+                }      
             }
             return response;
         }
     }
-
 }

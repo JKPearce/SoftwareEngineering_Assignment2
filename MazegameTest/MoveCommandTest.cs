@@ -23,8 +23,8 @@ namespace MazegameTest
             thePlayer = new Player("greg");
             t127 = new Location("a lecture theatre", "T127");
             gregsoffice = new Location("a spinning vortex of terror", "Greg's Office");
-            t127.AddExit("south", new Exit("you see a mound of paper to the south", gregsoffice));
-            gregsoffice.AddExit("north", new Exit("you see a bleak place to the north", t127));
+            t127.GetExitCollection().AddExit("south", new Exit("you see a mound of paper to the south", gregsoffice));
+            gregsoffice.GetExitCollection().AddExit("north", new Exit("you see a bleak place to the north", t127));
             thePlayer.CurrentLocation = t127;
             handler = new CommandHandler();
             move = new MoveCommand();
@@ -55,7 +55,7 @@ namespace MazegameTest
         public void TestTakeExit()
         {
             playerInput.Arguments = new ArrayList(new string[] { "south" });
-            CommandResponse response = move.Execute(playerInput, thePlayer);
+            CommandResponse response = move.Execute(playerInput, thePlayer);   
             Assert.IsFalse(response.FinishedGame);
             Assert.IsTrue(response.Message.Contains(gregsoffice.Description));
             Assert.AreSame(gregsoffice, thePlayer.CurrentLocation);

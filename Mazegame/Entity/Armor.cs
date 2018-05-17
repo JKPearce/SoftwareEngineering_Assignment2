@@ -12,7 +12,8 @@ namespace Mazegame.Entity
     {
         private int bonus;
 
-        public Armor()
+        public Armor(string label, int value, double weight, string description)
+            : base(label, value, weight, description)
         {
         }
 

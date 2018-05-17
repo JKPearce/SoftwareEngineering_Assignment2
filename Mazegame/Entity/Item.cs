@@ -13,27 +13,37 @@ namespace Mazegame.Entity
 {
     public class Item
     {
-        private int worth;
-        private int weight;
-        private String description;
+        private int value;
+        private double weight;
+        private string description;
+        private string label;
 
-        public int Worth
+        public Item(string label, int value, double weight, string description)
         {
-            get { return worth; }
-            set { worth = value; }
+            this.label = label;
+            this.description = description;
+            this.weight = weight;
+            this.value = value;
         }
 
-        public int Weight
+        public int GetValue()
         {
-            get { return weight; }
-            set { weight = value; }
+            return value;
         }
 
-        public string Description
+        public double GetWeight()
         {
-            get { return description; }
-            set { description = value; }
+            return weight;
         }
 
+        public string GetLabel()
+        {
+            return label;
+        }
+
+        public string GetDescription()
+        {
+            return description;
+        }
     } //end Item
 } //end namespace Entity

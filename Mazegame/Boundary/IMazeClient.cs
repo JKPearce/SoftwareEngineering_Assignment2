@@ -12,16 +12,9 @@ using System;
 namespace Mazegame.Boundary {
 	public interface IMazeClient  {
 
-		/// 
-		/// <param name="question"></param>
 		String GetReply(String question);
-
-		/// 
-		/// <param name="message"></param>
 		void PlayerMessage(String message);
+	    String GetCommand();
+	}
 
-
-        String GetCommand();
-	}//end IMazeClient
-
-}//end namespace Boundary
+}
