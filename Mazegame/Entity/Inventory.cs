@@ -32,17 +32,19 @@ namespace Mazegame.Entity
             itemList[theItem.GetLabel()] = theItem;
         }
 
-        public String RemoveItem(string itemName)
+        public bool RemoveItem(string itemName)
         {
             if (!itemList.ContainsKey(itemName))
-                return "That item isn't here to remove";
+                return false;
             itemList.Remove(itemName);
-            return "You successfully dropped " + itemName;
+            return true;
         }
 
         public Item GetItemObject(string itemName)
         {
-            return itemList[itemName];
+            if(itemList.ContainsKey(itemName))
+                return itemList[itemName];
+            throw new ItemNotFoundException("this failed");
         }
 
 

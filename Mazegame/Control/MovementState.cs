@@ -15,6 +15,8 @@ namespace Mazegame.Control
             AvailableCommands.Add("list", new ListItemCommand());
             AvailableCommands.Add("inventory", new ListItemCommand());
             AvailableCommands.Add("grab", new PickUpCommand());
+            AvailableCommands.Add("get", new PickUpCommand());
+            AvailableCommands.Add("pickup", new PickUpCommand());
             AvailableCommands.Add("drop", new DropCommand());
         }
 
