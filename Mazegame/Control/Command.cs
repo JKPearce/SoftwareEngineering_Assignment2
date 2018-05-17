@@ -1,5 +1,4 @@
-﻿
-using Mazegame.Entity;
+﻿using Mazegame.Entity;
 
 namespace Mazegame.Control
 {

@@ -52,6 +52,8 @@
     <Compile Include="Control\CommerceState.cs" />
     <Compile Include="Control\DropCommand.cs" />
     <Compile Include="Control\DungeonMaster.cs" />
+    <Compile Include="Control\EquipCommand.cs" />
+    <Compile Include="Control\FleeCommand.cs" />
     <Compile Include="Control\GameFactory.cs" />
     <Compile Include="Control\ListItemCommand.cs" />
     <Compile Include="Control\LookCommand.cs" />
@@ -62,9 +64,9 @@
     <Compile Include="Control\PickUpCommand.cs" />
     <Compile Include="Control\QuitCommand.cs" />
     <Compile Include="Control\SellCommand.cs" />
+    <Compile Include="Control\UnequipCommand.cs" />
     <Compile Include="Control\UnlockCommand.cs" />
     <Compile Include="Entity\Armor.cs" />
-    <Compile Include="Entity\Blacksmith.cs" />
     <Compile Include="Entity\Character.cs" />
     <Compile Include="Entity\Dice.cs" />
     <Compile Include="Entity\Exit.cs" />
@@ -72,10 +74,8 @@
     <Compile Include="Entity\Inventory.cs" />
     <Compile Include="Entity\Item.cs" />
     <Compile Include="Entity\Location.cs" />
-    <Compile Include="Entity\Maze.cs" />
     <Compile Include="Entity\Money.cs" />
     <Compile Include="Entity\NonPlayerCharacter.cs" />
-    <Compile Include="Entity\Party.cs" />
     <Compile Include="Entity\Player.cs" />
     <Compile Include="Entity\Shield.cs" />
     <Compile Include="Entity\Shop.cs" />

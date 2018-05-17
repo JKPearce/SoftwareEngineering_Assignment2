@@ -46,14 +46,10 @@ namespace MazeGame.Control
         private Object DynamicLoad(string assemblyName, string className)
         {
             Assembly assembly = Assembly.LoadFrom(assemblyName);
-
-            // Walk through each type in the assembly
             foreach (Type type in assembly.GetTypes())
             {
                 if (type.IsClass == true)
                 {
-                    // doing it this way means that you don't have
-                    // to specify the full namespace and class (just the class)
                     if (type.FullName.EndsWith("." + className))
                     {
                         return Activator.CreateInstance(type);

@@ -18,6 +18,9 @@ namespace Mazegame.Control
             AvailableCommands.Add("get", new PickUpCommand());
             AvailableCommands.Add("pickup", new PickUpCommand());
             AvailableCommands.Add("drop", new DropCommand());
+            AvailableCommands.Add("flee", new FleeCommand());
+            AvailableCommands.Add("equip", new EquipCommand());
+            AvailableCommands.Add("unequip", new UnequipCommand());
         }
 
         public override CommandState Update(Player thePlayer)
