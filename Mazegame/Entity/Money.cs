@@ -25,6 +25,12 @@ namespace Mazegame.Entity
             total += amount;
         }
 
+        public int Total
+        {
+            get { return total; }
+            set { total = value; }
+        }
+
         public bool Subtract(int amount)
         {
             if (amount > total)

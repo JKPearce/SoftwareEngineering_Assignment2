@@ -12,6 +12,7 @@ namespace Mazegame.Control
             AvailableCommands.Add("sell", new SellCommand());
             AvailableCommands.Add("move", new MoveCommand());
             AvailableCommands.Add("look", new LookCommand());
+            AvailableCommands.Add("list", new ListItemCommand());
         }
 
         public override CommandState Update(Player thePlayer)

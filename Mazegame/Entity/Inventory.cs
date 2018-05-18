@@ -27,6 +27,11 @@ namespace Mazegame.Entity
             return gold.Subtract(goldPieces);
         }
 
+        public int GetTotalGold()
+        {
+            return gold.Total;
+        }
+
         public void AddItem(Item theItem)
         {
             itemList[theItem.GetLabel()] = theItem;
@@ -44,7 +49,7 @@ namespace Mazegame.Entity
         {
             if(itemList.ContainsKey(itemName))
                 return itemList[itemName];
-            throw new ItemNotFoundException("this failed");
+            throw new ItemNotFoundException("That item does not exist.");
         }
 
 

@@ -13,7 +13,7 @@ namespace Mazegame.Entity {
 	    public Player(String name) : base(name)
 		{
 		    inventory = new Inventory();
-            inventory.AddItem(new Item("warhammer", 12, 8, "It's hammer time"));
+            inventory.AddItem(new Item("warhammer", 10, 8, "It's hammer time"));
             inventory.AddMoney(100);
         }
 
